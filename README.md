@@ -1,5 +1,5 @@
 # Project-Evaluation-of-Hedging-Strategies
-Evaluation  of hedging strategies in R for the purchase of currency, specifically the U.S. dollar, through the use of financial options.
+**Topic:** Evaluation  of hedging strategies in R for the purchase of currency, specifically the U.S. dollar, through the use of financial options.
 
 This project seeks to determine the best hedging strategy for the purchase of currency, specifically the U.S. dollar, through the use of financial options. The strategies to be analyzed are the following: traditional Long Call strategy, Participative Forward strategy, Collar or Bull Call Spread strategy and finally Gaviota strategy.
 
