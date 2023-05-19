@@ -2,19 +2,13 @@
 
 ######Valoracion de opciones financieras########
 
-# la cobertura será para un mes
-
-ls()
-getwd()
-setwd("C:/Users/Valentina/Documents/Universidad/Futuros y Opciones")
-setwd("Trabajo Final")
-getwd()
+# la cobertura serÃ¡ para un mes
 
 datos=read.csv("TRM.csv",header=T,dec = ".", sep = ";")
 precios=datos$TRM
 precios
 s= tail(precios,1)
-# Precio So al día de cobertura 21 febrero de 2020
+# Precio So al dÃ­a de cobertura 21 febrero de 2020
 s
 
 rendimientos=diff(log(precios))
@@ -46,10 +40,10 @@ deltaT=1 #todo lo mensual lo multiplico x 1 para que quede continuo mensual
  
 # 1. Estrategia tradicional: Largo en call
 
-k=s #Las opciones ATM tendrán un precio strike igual a S0
+k=s #Las opciones ATM tendrÃ¡n un precio strike igual a S0
 k
 
-#VALORACIÓN OPCIÓN CALL ATM
+#VALORACIÃ“N OPCIÃ“N CALL ATM
 st_prima=vector()
 vp_compensacion_call_1=vector()
 
@@ -159,14 +153,14 @@ for (i in 1:50000){
   vp_compensacion_put_2[i]= max(k-st_prima[i],0)*exp(-(r-rf)*deltaT)
  
 }
-#Tenemos la simulación de la compensación call
+#Tenemos la simulaciÃ³n de la compensaciÃ³n call
 call_2= mean(vp_compensacion_call_2)
 call_2
-#Tenemos la simulación de la compensación put
+#Tenemos la simulaciÃ³n de la compensaciÃ³n put
 put_2=mean(vp_compensacion_put_2)
 put_2
 
-#Ahora vamos calcular el precio de la opción
+#Ahora vamos calcular el precio de la opciÃ³n
 
 #Comprador de divisas
 
@@ -228,7 +222,7 @@ prob_ganar_forward=(ganar_forward/length(st))*100
 
 k2=k+10 
 
-#Valoración opciones
+#ValoraciÃ³n opciones
 vp_compensacion_call_3=vector()
 vp_compensacion_put_3=vector()
 
@@ -300,9 +294,9 @@ prob_ganar_collar=(ganar_collar/length(st))*100
 
 k3=k-10#este va a ser el k1 del taller, el k2 es el k y el k3 es el k2 
 
-#Valoración opciones
-vp_compensacion_call_4=vector() #compra opción call
-vp_compensacion_call_5=vector() #venta opción call
+#ValoraciÃ³n opciones
+vp_compensacion_call_4=vector() #compra opciÃ³n call
+vp_compensacion_call_5=vector() #venta opciÃ³n call
 vp_compensacion_put_4=vector()
 
 
@@ -373,7 +367,7 @@ abline(v=mean(precio_cobertura_comprador_prima_gaviota),lwd=3)
 abline(v=quantile(precio_cobertura_comprador_prima_gaviota,0.05),lwd=3)
 abline(v=quantile(precio_cobertura_comprador_prima_gaviota,0.95),lwd=3)
 
-#COMPARACIÓN ESTRATEGIAS
+#COMPARACIÃ“N ESTRATEGIAS
 Sin_prima=data.frame(sin_cobertura=st,largocall=precio_cobertura_comprador_noprima_largocall,
                    fwd_participativo=precio_cobertura_comprador_noprima_fwdpart,
                    collar=precio_cobertura_comprador_noprima_collar,
